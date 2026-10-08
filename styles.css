@@ -1,0 +1,637 @@
+/*
+   Folhas externas deixam estrutura, conteúdo e apresentação separados. Isso facilita manutenção,
+   reaproveitamento, cache do navegador e crescimento do projeto. CSS inline espalha regras pelo HTML;
+   CSS interno prende a apresentação a uma única página. Por isso, uma folha externa é mais escalável.
+*/
+
+/* box-sizing: border-box faz width representar a caixa completa, incluindo padding e borda. Assim o layout
+   pode ser calculado pela largura final, sem a surpresa do content-box somar dimensões por fora. */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --ink: #17212b;
+    --muted: #66717c;
+    --paper: #f7f6f2;
+    --white: white;
+    --accent: #e66a4e;
+    --accent-dark: #a83f2d;
+    --blue: #315c72;
+    --line: rgba(23, 33, 43, 0.14);
+    --shadow: 0 18px 45px rgba(23, 33, 43, 0.12);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+a {
+    color: inherit;
+}
+
+a[href^="https"] {
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+a:hover {
+    color: var(--accent);
+}
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+.hero {
+    min-height: 430px;
+    padding: 28px 20px 52px;
+    color: var(--white);
+    background-image: linear-gradient(115deg, rgba(23, 33, 43, .92), rgba(49, 92, 114, .72)), url('imagens/banner.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-conteudo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 30px;
+    width: 100%;
+    max-width: 1120px;
+    min-height: 350px;
+    margin: 0 auto;
+}
+
+.foto-perfil {
+    width: 166px;
+    height: 166px;
+    object-fit: cover;
+    object-position: 68% center;
+    border: 6px solid rgba(255, 255, 255, .88);
+    border-radius: 50%;
+    box-shadow: 0 16px 35px rgba(0, 0, 0, .24);
+}
+
+.identidade {
+    max-width: 680px;
+    text-align: center;
+}
+
+.eyebrow,
+.kicker,
+.ano {
+    color: var(--accent);
+    font-size: .76rem;
+    font-weight: 800;
+    letter-spacing: .15em;
+    text-transform: uppercase;
+}
+
+.hero .eyebrow {
+    color: #ffd1c3;
+}
+
+h1,
+h2,
+h3 {
+    line-height: 1.12;
+    letter-spacing: -.035em;
+}
+
+h1 {
+    margin: 12px 0 18px;
+    font-size: clamp(2.3rem, 9vw, 5rem);
+}
+
+h2 {
+    margin-top: 8px;
+    font-size: clamp(2rem, 6vw, 3.4rem);
+}
+
+h3 {
+    font-size: 1.35rem;
+}
+
+.resumo {
+    max-width: 600px;
+    margin: 0 auto;
+    color: rgba(255, 255, 255, .83);
+    font-size: 1.06rem;
+}
+
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: 66px;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, .96);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 6px 18px rgba(23, 33, 43, .06);
+}
+
+/* position: sticky permanece no fluxo como relative até chegar em top: 0; ao rolar, ancora-se visualmente
+   como fixed dentro do limite do seu contêiner, sem sair do fluxo de layout. */
+
+.marca-nav {
+    color: var(--blue);
+    font-size: 1.35rem;
+    font-weight: 900;
+    text-decoration: none;
+}
+
+.marca-nav span {
+    color: var(--accent);
+}
+
+nav ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 12px;
+    list-style: none;
+}
+
+nav > ul > li > a {
+    color: var(--ink);
+    font-size: .8rem;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+main {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+.busca-area {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 42px 0 38px;
+    border-bottom: 1px solid var(--line);
+}
+
+.busca-area h2 {
+    font-size: clamp(1.65rem, 5vw, 2.4rem);
+}
+
+.form-busca {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 8px;
+}
+
+label {
+    color: var(--muted);
+    font-size: .88rem;
+    font-weight: 700;
+}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 13px 14px;
+    color: var(--ink);
+    background: var(--white);
+    border: 1px solid rgba(23, 33, 43, .2);
+    border-radius: 8px;
+}
+
+textarea {
+    min-height: 135px;
+    resize: vertical;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    outline: 3px solid rgba(230, 106, 78, .25);
+    border-color: var(--accent);
+}
+
+.form-busca button,
+.botao-enviar {
+    align-self: flex-start;
+    padding: 13px 20px;
+    color: var(--white);
+    background: var(--blue);
+    border: 0;
+    border-radius: 8px;
+    font-weight: 800;
+}
+
+.form-busca button:hover,
+.botao-enviar:hover {
+    background: var(--accent-dark);
+    color: var(--white);
+}
+
+.secao {
+    padding: 74px 0;
+}
+
+.secao-heading {
+    margin-bottom: 30px;
+}
+
+.sobre {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.texto-sobre,
+.post {
+    max-width: 760px;
+}
+
+.texto-sobre p,
+.post p {
+    color: #46515b;
+    font-size: 1.08rem;
+}
+
+.texto-sobre p + p,
+.post p + p {
+    margin-top: 18px;
+}
+
+mark {
+    padding: 2px 5px;
+    color: var(--ink);
+    background: #ffd0bc;
+}
+
+.texto-teste {
+    padding-top: 18px;
+    border-top: 1px dashed var(--line);
+    font-size: .9rem !important;
+}
+
+.post {
+    position: relative;
+    padding: 30px;
+    background: #e8efee;
+    border-left: 4px solid var(--accent);
+    border-radius: 0 16px 16px 0;
+}
+
+.post h2 {
+    margin-bottom: 20px;
+    font-size: clamp(1.8rem, 5vw, 2.7rem);
+}
+
+.formacao-hobbies {
+    display: flex;
+    flex-direction: column;
+    gap: 72px;
+}
+
+.timeline-item {
+    position: relative;
+    padding: 26px 0 26px 24px;
+    border-left: 2px solid var(--accent);
+}
+
+.timeline-item h3 {
+    margin: 8px 0 5px;
+    font-size: 1.6rem;
+}
+
+.muted {
+    margin-top: 16px;
+    color: var(--muted);
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    gap: 18px;
+}
+
+/* Com width: 300px e content-box, a caixa ocuparia 300 + 40 de padding + 4 de borda = 344px.
+   Com border-box, a largura total fica exatamente em 300px e o conteúdo interno recalcula para 256px. */
+.card {
+    position: relative;
+    width: 300px;
+    min-height: 236px;
+    padding: 20px;
+    border: 2px solid var(--ink);
+    border-radius: 8px;
+    background: var(--white);
+    box-shadow: 8px 8px 0 rgba(49, 92, 114, .12);
+}
+
+.card-destaque {
+    background: #fff0e9;
+}
+
+.card-numero {
+    display: block;
+    margin-bottom: 45px;
+    color: var(--accent);
+    font-weight: 900;
+}
+
+.card h3 {
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+}
+
+.badge-novo {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    padding: 4px 8px;
+    color: var(--white);
+    background: var(--accent);
+    border-radius: 999px;
+    font-size: .7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+}
+
+/* O card pai precisa ser relative para o selo ser posicionado nele. Sem isso, absolute ignora o pai imediato
+   e sobe pela árvore do DOM até achar um bloco de contenção posicionado ou o elemento raiz da janela. */
+
+.contato-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.intro-contato {
+    max-width: 600px;
+    margin-top: 18px;
+    color: var(--muted);
+}
+
+.form-contato {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    padding: 24px;
+    background: var(--white);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+}
+
+#formulario-contato {
+    scroll-margin-top: 96px;
+}
+
+fieldset {
+    display: grid;
+    gap: 10px;
+    padding: 18px;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+}
+
+legend {
+    padding: 0 7px;
+    color: var(--blue);
+    font-weight: 900;
+}
+
+.opcao {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    font-weight: 500;
+}
+
+.opcao input {
+    width: auto;
+}
+
+.botao-enviar {
+    align-self: stretch;
+    padding: 16px 20px;
+    background: var(--accent);
+}
+
+.botao-enviar span {
+    margin-left: 8px;
+    font-size: 1.2rem;
+}
+
+.aside-links {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+    padding: 44px 0;
+    border-top: 1px solid var(--line);
+}
+
+.aside-links ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    list-style: none;
+}
+
+.aside-links a {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--line);
+    font-weight: 800;
+    text-decoration: none;
+}
+
+.aside-links a span {
+    color: var(--accent);
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 28px 20px 36px;
+    color: rgba(255, 255, 255, .72);
+    background: var(--ink);
+    font-size: .83rem;
+    text-align: center;
+}
+
+footer a {
+    color: #ffd1c3;
+}
+
+/* Mobile-first: min-width adiciona complexidade progressivamente. Assim telas estreitas recebem primeiro
+   uma estrutura leve, e telas maiores ganham colunas sem duplicar o código-base. */
+@media (min-width: 768px) {
+    .hero {
+        min-height: 470px;
+        padding-inline: 48px;
+    }
+
+    .hero-conteudo {
+        flex-direction: row;
+        gap: 55px;
+        text-align: left;
+    }
+
+    .identidade {
+        text-align: left;
+    }
+
+    .resumo {
+        margin: 0;
+    }
+
+    nav {
+        padding-inline: 48px;
+    }
+
+    .form-busca {
+        display: grid;
+        grid-template-columns: auto minmax(180px, 1fr) auto;
+        align-items: center;
+        gap: 14px;
+        max-width: 760px;
+    }
+
+    .form-busca button {
+        align-self: stretch;
+    }
+
+    .cards {
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    .card {
+        flex: 1 1 280px;
+    }
+
+    .form-contato {
+        padding: 34px;
+    }
+
+    fieldset {
+        grid-template-columns: minmax(110px, .35fr) 1fr;
+        align-items: center;
+    }
+
+    fieldset legend,
+    fieldset textarea,
+    fieldset select,
+    fieldset + fieldset,
+    .botao-enviar {
+        grid-column: 1 / -1;
+    }
+
+    fieldset + fieldset {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+    fieldset + fieldset legend {
+        grid-column: 1 / -1;
+    }
+
+    .aside-links {
+        flex-direction: row;
+        align-items: end;
+        justify-content: space-between;
+        padding-block: 62px;
+    }
+
+    .aside-links ul {
+        min-width: 350px;
+    }
+}
+
+@media (min-width: 1024px) {
+    main {
+        width: min(1120px, calc(100% - 96px));
+    }
+
+    nav {
+        padding-inline: max(48px, calc((100% - 1120px) / 2));
+    }
+
+    .secao {
+        padding-block: 100px;
+    }
+
+    .sobre {
+        display: grid;
+        grid-template-columns: minmax(240px, .7fr) minmax(0, 1.3fr);
+        gap: 70px;
+    }
+
+    .formacao-hobbies {
+        display: grid;
+        grid-template-columns: .65fr 1.35fr;
+        gap: 90px;
+    }
+
+    .cards {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .card {
+        width: auto;
+    }
+
+    .contato-layout {
+        display: grid;
+        grid-template-columns: .75fr 1.25fr;
+        gap: 80px;
+        align-items: start;
+    }
+
+    .contato-layout .secao-heading {
+        position: sticky;
+        top: 115px;
+    }
+
+    .aside-links {
+        width: min(1120px, calc(100% - 96px));
+    }
+}
+
+/* Laboratório de especificidade: previsão antes da visualização: o parágrafo ficará vermelho.
+   Constatação após o teste: vermelho. Peso relativo: p = 1 ponto; .texto-teste = 10 pontos;
+   #paragrafo-conflito = 100 pontos. O ID prevalece mesmo se a ordem das linhas mudar, pois
+   100 > 10 > 1. */
+p { color: gray; }
+.texto-teste { color: blue; }
+#paragrafo-conflito { color: red; }

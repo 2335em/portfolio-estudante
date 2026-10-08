@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio pessoal de Emilian Monteiro da Soler, estudante de Ciência da Computação.">
+    <title>Emilian Monteiro da Soler | Portfólio</title>
+    <link rel="icon" type="image/x-icon" href="imagens/favicon.ico">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="hero" id="inicio">
+        <section class="hero-conteudo" aria-label="Apresentação principal">
+            <!-- Caminhos relativos funcionam em qualquer máquina ou servidor que contenha a mesma estrutura do projeto, enquanto caminhos absolutos dependem do sistema operacional local. -->
+            <img class="foto-perfil" src="imagens/perfil.jpg" alt="Foto de perfil de Emilian Monteiro da Soler sorrindo, usando camisa branca">
+            <article class="identidade">
+                <p class="eyebrow">Portfólio pessoal • Desenvolvimento de Aplicações I</p>
+                <h1>Emilian Monteiro da Soler</h1>
+                <p class="resumo">Estudante de Ciência da Computação, na 2ª fase, construindo uma base prática em desenvolvimento web e transformando ideias em projetos que realmente funcionam.</p>
+            </article>
+        </section>
+    </header>
+
+    <nav aria-label="Navegação principal">
+        <a class="marca-nav" href="#inicio" aria-label="Voltar ao início">EM<span>.</span></a>
+        <ul>
+            <li><a href="#sobre">Sobre</a></li>
+            <li><a href="#formacao">Formação</a></li>
+            <li><a href="#hobbies">Hobbies</a></li>
+            <li><a href="#contato">Contato</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section class="busca-area" aria-labelledby="titulo-busca">
+            <p class="kicker">Navegue pelo portfólio</p>
+            <h2 id="titulo-busca">Procure uma parte específica</h2>
+            <!-- GET é adequado para buscas porque os dados ficam na query string da URL, permitindo refazer, compartilhar e referenciar a pesquisa. -->
+            <form class="form-busca" action="#" method="get">
+                <label for="termo_busca">Buscar no portfólio:</label>
+                <input type="search" name="termo_busca" id="termo_busca" placeholder="Ex.: formação, hobbies...">
+                <button type="submit" name="acao_busca">Pesquisar</button>
+            </form>
+        </section>
+
+        <section id="sobre" class="secao sobre" aria-labelledby="titulo-sobre">
+            <div class="secao-heading">
+                <p class="kicker">01 / Quem sou</p>
+                <h2 id="titulo-sobre">Um pouco sobre mim</h2>
+            </div>
+            <article class="texto-sobre">
+                <p>Eu sou o Emilian e estou cursando Ciência da Computação. Entrei na área porque gosto de entender como as coisas funcionam e, principalmente, de transformar uma ideia solta em algo que dá para usar. <strong>Levar cada projeto a sério é um compromisso que não abro mão.</strong> Ao mesmo tempo, <em>não quero aprender só para decorar conteúdo</em>: quero testar, errar, ajustar e entender o motivo de cada escolha. Hoje, meu foco é fortalecer minha base em <mark>desenvolvimento web</mark> e continuar evoluindo com projetos reais.</p>
+                <!-- strong e em comunicam importância semântica no texto; mark destaca uma relevância contextual que o leitor deve localizar visualmente. -->
+                <p id="paragrafo-conflito" class="texto-teste">Texto para análise de especificidade.</p>
+            </article>
+        </section>
+
+        <article class="post" aria-labelledby="titulo-post">
+            <p class="kicker">Registro de aprendizagem</p>
+            <h2 id="titulo-post">O que estou construindo nesta fase</h2>
+            <p>Aprender programação tem sido menos sobre encontrar uma resposta pronta e mais sobre aprender a fazer perguntas melhores. Em cada exercício, tento perceber a lógica por trás da tela: como o conteúdo é organizado, como uma pessoa usa a página e como pequenos detalhes mudam a experiência.</p>
+            <p>Este portfólio é um retrato desse momento. Ele ainda vai mudar bastante, mas já mostra uma direção: estudar com curiosidade, praticar com consistência e criar interfaces simples, claras e úteis.</p>
+        </article>
+
+        <!-- article representa um conteúdo autossuficiente; section agrupa conteúdos que pertencem a um mesmo tema maior. -->
+        <section id="formacao" class="secao formacao-hobbies" aria-label="Formação acadêmica e hobbies">
+            <section class="formacao" aria-labelledby="titulo-formacao">
+                <div class="secao-heading">
+                    <p class="kicker">02 / Caminho</p>
+                    <h2 id="titulo-formacao">Formação acadêmica</h2>
+                </div>
+                <article class="timeline-item">
+                    <p class="ano">Em andamento</p>
+                    <h3>Ciência da Computação</h3>
+                    <p>Universidade do Extremo Sul Catarinense (UNESC)</p>
+                    <p class="muted">Atualmente na 2ª fase, desenvolvendo fundamentos de programação, desenvolvimento web, lógica e resolução de problemas.</p>
+                </article>
+            </section>
+
+            <section id="hobbies" class="hobbies" aria-labelledby="titulo-hobbies">
+                <div class="secao-heading">
+                    <p class="kicker">03 / Fora da sala</p>
+                    <h2 id="titulo-hobbies">Coisas que me interessam</h2>
+                </div>
+                <div class="cards">
+                    <article class="card card-destaque">
+                        <span class="badge-novo">Novo</span>
+                        <span class="card-numero">01</span>
+                        <h3>Desenvolvimento web</h3>
+                        <p>Gosto de montar páginas, testar ideias visuais e descobrir como deixar uma interface mais clara.</p>
+                    </article>
+                    <article class="card">
+                        <span class="card-numero">02</span>
+                        <h3>Projetos práticos</h3>
+                        <p>Aprendo melhor quando consigo aplicar o conteúdo em algo concreto, mesmo que seja pequeno.</p>
+                    </article>
+                    <article class="card">
+                        <span class="card-numero">03</span>
+                        <h3>Ensinar e compartilhar</h3>
+                        <p>Explicar um assunto para outra pessoa também me ajuda a organizar melhor o que eu aprendi.</p>
+                    </article>
+                </div>
+            </section>
+        </section>
+
+        <section class="secao contato-layout" id="contato" aria-labelledby="titulo-contato">
+            <div class="secao-heading">
+                <p class="kicker">04 / Vamos conversar</p>
+                <h2 id="titulo-contato">Entre em contato</h2>
+                <p class="intro-contato">Quer falar sobre um projeto, trocar uma ideia ou mandar um feedback? Preencha o formulário. É uma simulação acadêmica de envio, mas a estrutura está pronta para uma integração real.</p>
+            </div>
+
+            <form id="formulario-contato" class="form-contato" action="#" method="post">
+                <!-- POST é obrigatório para mensagens e dados transacionais porque envia o conteúdo no corpo da requisição, sem expô-lo na URL como o GET. -->
+                <fieldset>
+                    <legend>Seus dados</legend>
+                    <label for="nome">Nome completo</label>
+                    <input type="text" name="nome" id="nome" minlength="3" required autocomplete="name">
+
+                    <label for="email">E-mail</label>
+                    <input type="email" name="email" id="email" required autocomplete="email">
+
+                    <label for="telefone">Telefone</label>
+                    <input type="tel" name="telefone" id="telefone" pattern="[0-9]{2} [0-9]{5}-[0-9]{4}" placeholder="48 99999-9999" autocomplete="tel">
+                </fieldset>
+
+                <fieldset>
+                    <legend>Detalhes da mensagem</legend>
+                    <label for="assunto">Assunto</label>
+                    <select name="assunto" id="assunto">
+                        <option value="projeto">Projeto ou ideia</option>
+                        <option value="feedback">Feedback sobre o portfólio</option>
+                        <option value="parceria">Parceria</option>
+                        <option value="outro">Outro assunto</option>
+                    </select>
+
+                    <label for="mensagem">Mensagem</label>
+                    <textarea name="mensagem" id="mensagem" rows="6" required></textarea>
+
+                    <label for="protocolo">Identificador de protocolo</label>
+                    <input type="text" name="protocolo" id="protocolo" value="PROT-2026-CC" readonly>
+
+                    <label for="campanha">Campanha descontinuada</label>
+                    <input type="text" name="campanha" id="campanha" value="CUPOM-EXPIRADO" disabled>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Nível de formação</legend>
+                    <label class="opcao" for="formacao-tecnico"><input type="radio" name="nivel_formacao" id="formacao-tecnico" value="tecnico"> Técnico</label>
+                    <label class="opcao" for="formacao-graduacao"><input type="radio" name="nivel_formacao" id="formacao-graduacao" value="graduacao" checked> Graduação</label>
+                    <label class="opcao" for="formacao-pos"><input type="radio" name="nivel_formacao" id="formacao-pos" value="pos-graduacao"> Pós-graduação</label>
+                </fieldset>
+
+                <fieldset>
+                    <legend>Tecnologias de interesse</legend>
+                    <label class="opcao" for="tec-html"><input type="checkbox" name="tecnologias[]" id="tec-html" value="html5"> HTML5</label>
+                    <label class="opcao" for="tec-css"><input type="checkbox" name="tecnologias[]" id="tec-css" value="css3"> CSS3</label>
+                    <label class="opcao" for="tec-js"><input type="checkbox" name="tecnologias[]" id="tec-js" value="javascript"> JavaScript</label>
+                    <label class="opcao" for="tec-python"><input type="checkbox" name="tecnologias[]" id="tec-python" value="python"> Python</label>
+                </fieldset>
+
+                <!-- Sem name, o campo não é incluído no conjunto de controles bem-sucedidos e seu valor não é enviado na requisição HTTP. -->
+                <!-- readonly mostra o valor, impede edição e ainda envia o dado; disabled bloqueia a interação e também exclui o campo do envio. -->
+                <button class="botao-enviar" type="submit" name="acao_contato">Enviar mensagem <span aria-hidden="true">→</span></button>
+            </form>
+        </section>
+    </main>
+
+    <aside class="aside-links" aria-labelledby="titulo-links">
+        <div>
+            <p class="kicker">Pontos de contato</p>
+            <h2 id="titulo-links">Mais sobre meu caminho</h2>
+        </div>
+        <ul>
+            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer">GitHub <span>↗</span></a></li>
+            <li><a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">LinkedIn <span>↗</span></a></li>
+            <li><a href="https://www.coursera.org/" target="_blank" rel="noopener noreferrer">Certificações em andamento <span>↗</span></a></li>
+        </ul>
+    </aside>
+
+    <footer>
+        <p>© 2026 Emilian Monteiro da Soler</p>
+        <p>Projeto autoral desenvolvido para a disciplina Desenvolvimento de Aplicações I.</p>
+        <p><a href="#contato">Fale comigo</a> · <a href="#inicio">Voltar ao topo ↑</a></p>
+    </footer>
+</body>
+</html>
